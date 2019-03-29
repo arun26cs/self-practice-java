@@ -18,6 +18,19 @@ public class TreeAction {
 		//tree node deletion
 		ta.root=ta.deleteNode(ta.root,15);
 		ta.InOrderTraversal(ta.root);
+		System.out.println("size"+ta.treeSize(ta.root));
+		System.out.println("size"+ta.treeSize(ta.root));
+	}
+
+	private int treeSize(Node root2) {
+		//if null then 0
+		//if not null then 1
+		//finally 1+left+right
+		 
+		if(root2!=null) {
+			return 1+treeSize(root2.left)+treeSize(root2.right);
+		} 
+		return 0;
 	}
 
 	private Node deleteNode(Node root2, int delNode) {
