@@ -20,6 +20,40 @@ public class TreeAction {
 		ta.InOrderTraversal(ta.root);
 		System.out.println("size"+ta.treeSize(ta.root));
 		System.out.println("height"+ta.treeheight(ta.root));
+		//ta.root=ta.deleteAllTree(ta.root);
+		ta.root=ta.mirrorTree(ta.root);
+		ta.InOrderTraversal(ta.root);
+	}
+
+	private Node mirrorTree(Node root2) {
+		// go till last of the tree 
+		// if null return null
+		// if not null then root.left is root.right
+		// temp will hold previous state of the root.left before assigning root.left = root.right
+		// root.right= temp
+		// its in one recursion stack then the modified stack is returned 
+		
+		if(root2!=null) {
+			Node temp=root2.left;
+			root2.left=mirrorTree(root2.right);
+			root2.right=mirrorTree(temp);
+			return root2;
+		}
+		return null;
+	}
+
+	private Node deleteAllTree(Node root2) {
+		
+		// postirder traversal
+		// delete childrens before deleting parent
+		if(root2==null) {
+			return null;
+		}
+		deleteAllTree(root2.left);
+		deleteAllTree(root2.right);
+		System.out.println("deleting: "+root2.a);
+		return null;
+		
 	}
 
 	private int treeheight(Node root2) {
@@ -111,7 +145,7 @@ public class TreeAction {
 			return;
 		}
 		InOrderTraversal(root2.left);
-		System.out.println(root2.a);
+		System.out.println("in: "+root2.a);
 		InOrderTraversal(root2.right);
 		
 	}
