@@ -15,6 +15,54 @@ public class TreeAction {
 		ta.InOrderTraversal(ta.root);
 		ta.preOrderTraversal(ta.root);
 		ta.postOrderTraversal(ta.root);
+		//tree node deletion
+		ta.root=ta.deleteNode(ta.root,15);
+		ta.InOrderTraversal(ta.root);
+	}
+
+	private Node deleteNode(Node root2, int delNode) {
+		// till end not found? return root2
+		// current is just to make manipulation not touching root2
+		//Node current=root2;
+		if(root2==null) {
+			return root2;
+		}
+		//find node
+		//action on the find node
+		if(delNode==root2.a) {
+			if(root2.left==null && root2.right==null) {
+				return null;
+			}else if(root2.left!=null && root2.right!=null) {
+				//case of 15 both left and right child is there
+				//travel right tree of that node to get the min by left traversal
+				//then delete that node
+				Node tempNode=root2;
+				Node minNode=findRightMin(root2.right);
+				root2.right=deleteNode(root2.right,minNode.a);//very imp to place this here since before altering the node change since its mandatory to maintain the state of the tree nodes else two times 17 would be found and we would fall in loop always
+				//apply new changes here
+				root2=minNode;
+				root2.left=tempNode.left;
+				root2.right=tempNode.right;
+				
+				return root2;
+			}else {
+				return (root2.left==null)? root2.right: root2.left;
+			}
+		}
+		//not found ? then travel again and again 
+		if(delNode<root2.a) {
+			root2.left=deleteNode(root2.left,delNode);
+		}else if(delNode>root2.a) {
+			root2.right=deleteNode(root2.right,delNode);
+		} 
+		return root2;
+	}
+
+	private Node findRightMin(Node root) {
+		while(root.left!=null) {
+			root=root.left;
+		}
+		return root;
 	}
 
 	private void postOrderTraversal(Node root2) {
