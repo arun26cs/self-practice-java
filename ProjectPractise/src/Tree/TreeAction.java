@@ -20,9 +20,27 @@ public class TreeAction {
 		ta.InOrderTraversal(ta.root);
 		System.out.println("size"+ta.treeSize(ta.root));
 		System.out.println("height"+ta.treeheight(ta.root));
-		//ta.root=ta.deleteAllTree(ta.root);
+		/*ta.root=ta.deleteAllTree(ta.root);
 		ta.root=ta.mirrorTree(ta.root);
-		ta.InOrderTraversal(ta.root);
+		ta.InOrderTraversal(ta.root);*/
+		String paths =new String();
+		ta.allPathFromRoot(ta.root,paths);
+	}
+
+	private void allPathFromRoot(Node root2,String paths) {
+		// for the current stack take all path from passed parm and add new path
+		// perform right side also same way
+		if(root2==null) {
+			System.out.println(paths);
+			return;
+		}
+		if(root2!=null) {
+			paths+=root2.a+" ";
+			allPathFromRoot(root2.left,paths);
+			allPathFromRoot(root2.right,paths);
+		}
+		
+		
 	}
 
 	private Node mirrorTree(Node root2) {
