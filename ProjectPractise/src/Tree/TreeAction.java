@@ -19,7 +19,15 @@ public class TreeAction {
 		ta.root=ta.deleteNode(ta.root,15);
 		ta.InOrderTraversal(ta.root);
 		System.out.println("size"+ta.treeSize(ta.root));
-		System.out.println("size"+ta.treeSize(ta.root));
+		System.out.println("height"+ta.treeheight(ta.root));
+	}
+
+	private int treeheight(Node root2) {
+		//height is max of the left or the right tree and a 1 added to the current position
+		if(root2!=null) {
+			return 1+Math.max(treeheight(root2.left),treeheight(root2.right));
+		}
+		return 0;
 	}
 
 	private int treeSize(Node root2) {
