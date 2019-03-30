@@ -7,7 +7,7 @@ public class StringTree {
 	TreeNode root;
 	public static void main(String[] args) {
 		StringTree st = new StringTree();
-		st.root = st.StringRepOfTree(st.root,"4(2(3)(1))(6(5))");
+		st.root = st.StringRepOfTree(st.root,"4(2(3)(1(4)(5)))(6(5))");
 		st.preOrder(st.root);
 	}
 	

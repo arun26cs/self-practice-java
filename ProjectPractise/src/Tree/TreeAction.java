@@ -1,6 +1,7 @@
 package Tree;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class TreeAction {
 
@@ -25,8 +26,19 @@ public class TreeAction {
 		ta.InOrderTraversal(ta.root);*/
 		String paths =new String();
 		ta.allPathFromRoot(ta.root,paths);
+		//System.out.println(ta.LCAofTree(0,0));
+		
 	}
 
+	
+
+	/*private int LCAofTree(int i, int j) {
+		// get level order list
+		// compare prev
+		// take for first only
+		return null;
+	}
+*/
 	private void allPathFromRoot(Node root2,String paths) {
 		// for the current stack take all path from passed parm and add new path
 		// perform right side also same way
@@ -64,6 +76,7 @@ public class TreeAction {
 		
 		// postirder traversal
 		// delete childrens before deleting parent
+		// each stack items are returned as null as part of delete operation
 		if(root2==null) {
 			return null;
 		}
