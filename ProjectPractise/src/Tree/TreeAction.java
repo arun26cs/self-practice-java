@@ -2,7 +2,10 @@ package Tree;
 
 import java.util.Scanner;
 import java.util.Stack;
-
+//common practise in a recursion
+//they are stack wise events
+//each stack has a return type and 
+//we have to record the returntype by assigning the function to a variable that is compatible
 public class TreeAction {
 
 	Node root;
@@ -27,10 +30,27 @@ public class TreeAction {
 		String paths =new String();
 		ta.allPathFromRoot(ta.root,paths);
 		//System.out.println(ta.LCAofTree(0,0));
-		
+		System.out.println(ta.isBST(ta.root));
 	}
 
 	
+
+	private boolean isBST(Node root2) {
+		
+		if(root2==null||root2.left==null||root2.right==null) {
+			return true;
+		}
+		boolean stat = false;
+		if(root2.left.a<root2.a && root2.right.a>root2.a) {
+			return true;
+		}
+		stat=isBST(root2.left);
+		stat=isBST(root2.right);
+		return stat; 
+		
+	}
+
+
 
 	/*private int LCAofTree(int i, int j) {
 		// get level order list
