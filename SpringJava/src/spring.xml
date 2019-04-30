@@ -4,8 +4,30 @@
         <!-- be careful to enter the id proper as it is case sensitive -->
         <beans>
         <bean id="Triangle" class="org.java.spring.Triangle">
-        <!-- initializing the value to a variable -->
-        <property name="type" value='t'></property>
+       		<!-- initializing the value to a variable variable injection-->
+        	<!-- property name="type" value='t'-->
+        	<constructor-arg value='t'></constructor-arg>
+        	<!-- constructor injection -->
+        	<constructor-arg type="int" value="20"></constructor-arg>
+        </bean>
+        
+        <bean id="point1" class="org.java.spring.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
         
         </bean>
+        
+        <bean id="point2" class="org.java.spring.Point">
+        <property name="x" value="22"></property>
+        <property name="y" value="0"></property>
+        
+        </bean>
+        
+        
+        <bean id="point3" class="org.java.spring.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="22"></property>
+        
+        </bean>
+        
         </beans>

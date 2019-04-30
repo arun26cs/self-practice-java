@@ -13,7 +13,7 @@ public class DrawingApp {
 		//BeanFactory beanf = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		//ApplicationContext is interfeace .. xml file in class path so moved to src folder
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		Shape myTriangle=(Shape)context.getBean("Triangle");
+		Triangle myTriangle=(Triangle)context.getBean("Triangle");
 		//Shape myTriangle=(Shape)beanf.getBean("Triangle");
 		myTriangle.draw();
 		//try initiating the value of the variable in a class which is a property of the class
