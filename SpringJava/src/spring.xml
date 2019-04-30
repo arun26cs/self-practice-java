@@ -5,8 +5,18 @@
         <beans>
         <bean id="Triangle" class="org.java.spring.Triangle">
        		<property name="point1" ref="point1"></property>
-       		<property name="point2" ref="point2"></property>
-       		<property name="point3" ref="point3"></property>
+       		<property name="point2">
+       			<bean class="org.java.spring.Point">
+		        <property name="x" value="22"></property>
+		        <property name="y" value="0"></property>
+		        </bean>
+       		</property>
+       		<property name="point3">
+       			<bean class="org.java.spring.Point">
+		        <property name="x" value="0"></property>
+		        <property name="y" value="22"></property>
+		        </bean>
+       		</property>
         </bean>
         
         <bean id="point1" class="org.java.spring.Point">
@@ -15,11 +25,7 @@
         
         </bean>
         
-        <bean id="point2" class="org.java.spring.Point">
-        <property name="x" value="22"></property>
-        <property name="y" value="0"></property>
         
-        </bean>
         
         
         <bean id="point3" class="org.java.spring.Point">
