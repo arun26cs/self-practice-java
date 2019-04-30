@@ -16,7 +16,11 @@ ArrayList<Vertex> GraphDs = new ArrayList<>();
 		gr.createNode("arun","kiran");
 		gr.createNode("arun","anie"); 
 		gr.bfsTraversal(gr.GraphDs);
+		//gr.bfsTraversalParent(gr.GraphDs);
+		//dfs traversal
 	}
+
+	 
 
 	private void bfsTraversal(ArrayList<Vertex> graphDs) {
 		int nullTime=0;

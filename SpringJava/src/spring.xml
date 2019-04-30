@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        <!-- be careful to enter the id proper as it is case sensitive -->
+        <beans>
+        <bean id="Triangle" class="org.java.spring.Triangle">
+        <!-- initializing the value to a variable -->
+        <property name="type" value='t'></property>
+        
+        </bean>
+        </beans>

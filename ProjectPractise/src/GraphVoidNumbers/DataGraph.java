@@ -2,7 +2,9 @@ package GraphVoidNumbers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Set;
@@ -44,6 +46,34 @@ public class DataGraph {
 		dg.DFSTravel("f");
 		//BFS
 		dg.BFSTravel("a");
+		dg.BFSParent("a");
+		
+	}
+	private void BFSParent(String string) {
+		Queue<String> curStack= new LinkedList<String>();
+		Queue<String> parentStack= new LinkedList<String>();
+		List<String> visitedlist= new ArrayList<String>();
+		curStack.add(string);
+		while(!curStack.isEmpty()) {
+			String key= curStack.peek();
+			curStack.remove();
+			if(key!=null) {
+				ArrayList<String> adj = Graph.get(key);
+				Iterator<String> it = adj.iterator();
+				while(it.hasNext()) {
+					String items = it.next();
+					if(!visitedlist.contains(items)) {
+						curStack.addAll(adj);
+					}
+				}
+				curStack.add(null);
+				parentStack.add(key);
+				parentStack.add(null);
+			}else {
+				System.out.println("parent done: "+parentStack.remove());
+				parentStack.remove();//removes the null beside it
+			}
+		}
 		
 	}
 	private void BFSTravel(String startNode) {//just changed stack to queue thats it
