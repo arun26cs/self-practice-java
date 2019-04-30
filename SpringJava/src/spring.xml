@@ -4,11 +4,9 @@
         <!-- be careful to enter the id proper as it is case sensitive -->
         <beans>
         <bean id="Triangle" class="org.java.spring.Triangle">
-       		<!-- initializing the value to a variable variable injection-->
-        	<!-- property name="type" value='t'-->
-        	<constructor-arg value='t'></constructor-arg>
-        	<!-- constructor injection -->
-        	<constructor-arg type="int" value="20"></constructor-arg>
+       		<property name="point1" ref="point1"></property>
+       		<property name="point2" ref="point2"></property>
+       		<property name="point3" ref="point3"></property>
         </bean>
         
         <bean id="point1" class="org.java.spring.Point">
