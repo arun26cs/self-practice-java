@@ -3,6 +3,7 @@ package org.java.spring;
 public class Point {
 
 	int x;
+	int y;
 	public int getX() {
 		return x;
 	}
@@ -14,6 +15,5 @@ public class Point {
 	}
 	public void setY(int y) {
 		this.y = y;
-	}
-	int y;
+	} 
 }
