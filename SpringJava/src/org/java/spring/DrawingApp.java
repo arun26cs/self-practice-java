@@ -17,6 +17,13 @@ public class DrawingApp {
 		//Shape myTriangle=(Shape)beanf.getBean("Triangle");
 		myTriangle.draw();
 		//try initiating the value of the variable in a class which is a property of the class
-		
+		myTriangle.incrXY();
+		System.out.println("Second time display");
+		myTriangle.draw();
+		myTriangle=(Triangle)context.getBean("Triangle-alias");
+		System.out.println("After new context call getbean mytriangle value");
+		myTriangle.draw();
+		System.out.println("After new context call getbean mytriangle value");
+		myTriangle.draw();
 	}
 }

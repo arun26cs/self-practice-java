@@ -4,26 +4,24 @@
         <!-- be careful to enter the id proper as it is case sensitive -->
         <beans>
         <bean id="Triangle" class="org.java.spring.Triangle">
-       		<property name="points">
-       		<list>
-       			<ref bean="point1"/>
-       			<ref bean="point2"/>
-       			<ref bean="point3"/>
-       		</list>
-       		</property>
+       		<property name="point1" ref="point1"></property>
+       		<property name="point2" ref="point2"></property>
+       		<property name="point3" ref="point3"></property>
+       		
+       		
         </bean>
         
-        <bean id="point1" class="org.java.spring.Point">
+        <bean id="point1" class="org.java.spring.Point" scope="prototype">
         <property name="x" value="0"></property>
         <property name="y" value="0"></property>
         </bean>
         
-        <bean id="point2" class="org.java.spring.Point">
+        <bean id="point2" class="org.java.spring.Point" scope="prototype">
         <property name="x" value="0"></property>
         <property name="y" value="22"></property>
         </bean>
         
-        <bean id="point3" class="org.java.spring.Point">
+        <bean id="point3" class="org.java.spring.Point" scope="prototype">
         <property name="x" value="22"></property>
         <property name="y" value="0"></property>
         </bean>
