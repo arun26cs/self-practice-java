@@ -12,8 +12,8 @@
         </bean>
         
         <bean id="point1" class="org.java.spring.Point" scope="prototype">
-        <property name="x" value="0"></property>
-        <property name="y" value="0"></property>
+        <property name="x" value="${point1.x}"></property>
+        <property name="y" value="${point1.y}"></property>
         </bean>
         
         <bean id="point2" class="org.java.spring.Point" scope="prototype">
@@ -26,5 +26,13 @@
         <property name="y" value="0"></property>
         </bean>
         
-        <alias name="Triangle" alias="Triangle-alias"/>        
+        <alias name="Triangle" alias="Triangle-alias"/>     
+        
+        <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        	<property name="locations" value="PropFile.properties"></property>
+        </bean>
+        
+        <bean id="circle" class="org.java.spring.Circle">
+        	<property name="centre" ref="point1"></property>
+        </bean>   
         </beans>

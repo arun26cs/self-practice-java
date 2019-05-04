@@ -13,17 +13,20 @@ public class DrawingApp {
 		//BeanFactory beanf = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		//ApplicationContext is interfeace .. xml file in class path so moved to src folder
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		Triangle myTriangle=(Triangle)context.getBean("Triangle-alias");
+		Shape shape=(Shape)context.getBean("Triangle-alias");
 		//Shape myTriangle=(Shape)beanf.getBean("Triangle");
-		myTriangle.draw();
+		shape.draw();
+		
+		shape=(Shape)context.getBean("circle");
+		shape.draw();
 		//try initiating the value of the variable in a class which is a property of the class
-		myTriangle.incrXY();
-		System.out.println("Second time display");
-		myTriangle.draw();
-		myTriangle=(Triangle)context.getBean("Triangle-alias");
-		System.out.println("After new context call getbean mytriangle value");
-		myTriangle.draw();
-		System.out.println("After new context call getbean mytriangle value");
-		myTriangle.draw();
+//		myTriangle.incrXY();
+//		System.out.println("Second time display");
+//		myTriangle.draw();
+//		myTriangle=(Triangle)context.getBean("Triangle-alias");
+//		System.out.println("After new context call getbean mytriangle value");
+//		myTriangle.draw();
+//		System.out.println("After new context call getbean mytriangle value");
+//		myTriangle.draw();
 	}
 }
